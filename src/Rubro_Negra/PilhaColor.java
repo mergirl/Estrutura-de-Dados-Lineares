@@ -13,7 +13,7 @@ public class PilhaColor {
 	public PilhaColor() {
 		this.pilha = new Object[2];
 		this.blackposi = -1;
-		this.redposi = -1;
+		this.redposi = 2;
 	}
 	
 	public boolean isEmpty() {
