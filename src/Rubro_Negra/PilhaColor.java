@@ -24,11 +24,11 @@ public class PilhaColor {
 	}
 	public void duplicar() {
 		this.novoArray = new Object[this.pilha.length * 2];
-		for(int i = 0; i < pilha.length; i++) {
+		for(int i = 0; i < blacksize; i++) {
 			this.novoArray[i] = this.pilha[i];
 		}
 		
-		for(int i = 0; i < pilha.length; i++) {
+		for(int i = 0; i < redsize; i++) {
 			this.novoArray[novoArray.length - 1 + i] = this.pilha[this.redposi + i];
 		}
 		
@@ -87,5 +87,19 @@ public class PilhaColor {
 			Object retorno = this.pilha[this.redposi++];
 			this.redsize--;
 			return retorno;
+		}
+		
+		public Object blacktop() throws VoidColor {
+			if (isEmpty()) {
+				throw new VoidColor("A pilha está vazia");
+			}
+			return this.pilha[this.blackposi];
+		}
+		
+		public Object redtop() throws VoidColor{
+			if (isEmpty()) {
+				throw new VoidColor("A pilha está vazia");
+			}
+			return this.pilha[this.redposi];
 		}
 }
