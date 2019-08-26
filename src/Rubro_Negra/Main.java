@@ -5,11 +5,12 @@ public class Main {
 	public static void main(String[] args) throws VoidColor {
 		PilhaColor p = new PilhaColor();
 		
-		p.pushb(1);
-		p.pushr(2);
-		p.pushr(3);
-		p.pushb(4);
-		p.pushr(5);
+		p.pushb("black");
+		p.pushr("red");
+		p.pushr("red");
+		p.pushb("black");
+		p.pushb("black");
+		p.pushr("red");
 		
 		System.out.println(p.blacktop());
 		System.out.println(p.redtop());
