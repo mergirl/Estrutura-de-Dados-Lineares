@@ -29,7 +29,7 @@ public class PilhaColor {
 		}
 		
 		for(int i = 0; i < redsize; i++) {
-			this.novoArray[novoArray.length - 1 + i] = this.pilha[this.redposi + i];
+			this.novoArray[novoArray.length - redsize + i] = this.pilha[this.redposi + i];
 		}
 		
 		this.redposi = this.novoArray.length - redsize;
