@@ -3,9 +3,9 @@ package Fila;
 public class Fila {
 	
 	private Object[] fila;
-	private int s = 0;
-	private int r = s;
-	private int capacidade = 5;
+	private int s = 0; //PRIMEIRO ELEMENTO
+	private int r = s; //INDICE PRA PROXIMA POSICAO LIVRE
+	private int capacidade = 1;
 	private Object[] array = new Object[capacidade];
 	
 	
@@ -14,7 +14,7 @@ public class Fila {
 			Object[] temporario = new Object[array.length * 2];
 			int ss = s;
 			for(int ff = 0; ff < array.length - 1; ff++) {
-				ss = (ss + 1)%array.length;
+				
 			}
 			array = temporario;
 			r = size();
@@ -28,7 +28,7 @@ public class Fila {
 			throw new EEmpty("Fila vazia");
 		}
 			Object temporario = array[s];
-			
+			array[s] = null;
 			s = (s + 1) % array.length;
 			
 			return temporario;
@@ -43,7 +43,7 @@ public class Fila {
 	}
 	
 	public boolean isEmpty() {
-		return fila.length == 0;
+		return (s == r);
 	}
 	
 	public Object first() throws EEmpty{
@@ -51,6 +51,13 @@ public class Fila {
 			throw new EEmpty("Fila vazia");
 		}
 		return fila[s];
+	}
+	public void mostrar() {
+		for(int f=0;f<array.length;f++) {
+			System.out.print(array[f]+",");
+		}
+		System.out.println("");
+		
 	}
 	
 }

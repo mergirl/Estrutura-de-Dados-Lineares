@@ -6,7 +6,7 @@ public class Main {
 
 	public static void menu() {
 	System.out.println("Digite uma opção para a operação desejada");
-	System.out.println("| 1 | - enfileirar\n| 2 | - desinfileirar\n| 3 | - size\n| 4 | - sair");
+	System.out.println("| 1 | - enfilei1rar\n| 2 | - desinfileirar\n| 3 | - size\n| 4 | - sair");
 			
 	}
 		

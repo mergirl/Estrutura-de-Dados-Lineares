@@ -8,18 +8,21 @@ public class Main {
 		Fila fila = new Fila();
 		
 		fila.enfileirar("A");
+		fila.mostrar();
 		fila.enfileirar("B");
+		fila.mostrar();
 		fila.enfileirar("C");
+		fila.mostrar();
 		fila.enfileirar("D");
+		fila.mostrar();
 		fila.enfileirar("E");
-		
+		fila.mostrar();
 		System.out.println("Tamanho da fila: " + fila.size() + "\n"+"\n");
-		System.out.println("PAINEL DE OPERAÇÕES\n");
+		fila.retirar();
+		fila.mostrar();
+		System.out.println("Tamanho da fila: " + fila.size() + "\n"+"\n");
 	
-		while(!fila.isEmpty()){
-			System.out.println("Elemento removido: " + fila.first());
-			fila.retirar();
-		} 
+		//fila.retirar();
 	}		
 
 }

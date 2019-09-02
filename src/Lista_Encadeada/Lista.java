@@ -24,6 +24,7 @@ public class Lista {
 			this.first = novoNo;
 			this.last = novoNo;
 		}
+		
 		else {
 			last.setProximo(novoNo);
 			last = novoNo;
