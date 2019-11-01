@@ -11,8 +11,8 @@ public interface interfaceheap {
 	public int size();
 	public boolean isEmpty();
 	public void removeMin();
-	public Object insert(Object o);
-	public void min();
+	public void insert(Object o);
+	public int min();
 	public void downheap();
 	public void upheap();
 }

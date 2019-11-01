@@ -6,17 +6,15 @@ public class Heap implements interfaceheap {
 	public boolean isEmpty;
 	public int array[];
 	
-	public Heap(Object o) {
+	public Heap() {
 		array = new int[10];
 		size = 0;
 	}
 	
-	@Override
 	public int size() {
 		return size;
 	}
 
-	@Override
 	public boolean isEmpty() {
 		if (size == 0) {
 			isEmpty = true;
@@ -24,42 +22,34 @@ public class Heap implements interfaceheap {
 		return false;
 	}
 
-	@Override
 	public void removeMin() {
-		int novaraiz;
-		int novoultimo;
+		int raiz = this.array[1];
+		int ultimo = this.array[size];
 		
-		novaraiz = this.array[size];
-		novoultimo = this.array[size - 1];
-		
-		this.array[1] = novaraiz;
-		this.array[size] = novoultimo;
-		
+		raiz = ultimo;
+		ultimo = (Integer) null;
+		downheap();
 	}
 
-	@Override
-	public Object insert(Object o) {
-		this.array[++size] = (int) o;
+	public void insert(Object o) {
+		this.array[++size] = (Integer) o;
 		upheap();
-		return o;
+		//return o;
 	}
 
-	@Override
-	public void min() {
-		// TODO Auto-generated method stub
+	public int min() {
+		return array[1];
 		
 	}
 
-	@Override
 	public void downheap() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void upheap() {
 		int aux = size;
-		while(aux != 1 || this.array[aux] > this.array[aux/2]){
+		while(aux != 1 && this.array[aux] > this.array[aux/2]){
 			int auxpai = this.array[aux/2];
 			this.array[aux/2] = this.array[aux];
 			this.array[aux] = auxpai;
