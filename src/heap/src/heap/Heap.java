@@ -4,10 +4,10 @@ public class Heap implements interfaceheap {
 	
 	public int size;
 	public boolean isEmpty;
-	public int array[];
+	public Object array[];
 	
 	public Heap() {
-		array = new int[10];
+		array = new Object[1000];
 		size = 0;
 	}
 	
@@ -23,33 +23,54 @@ public class Heap implements interfaceheap {
 	}
 
 	public void removeMin() {
-		int raiz = this.array[1];
-		int ultimo = this.array[size];
 		
-		raiz = ultimo;
-		ultimo = (Integer) null;
+		this.array[1] = this.array[this.size];
+		size--;
+
 		downheap();
 	}
 
 	public void insert(Object o) {
-		this.array[++size] = (Integer) o;
+		this.array[++size] = (int) o;
 		upheap();
-		//return o;
 	}
 
-	public int min() {
-		return array[1];
+	public Object min() {
+		return this.array[1];
 		
 	}
 
 	public void downheap() {
-		// TODO Auto-generated method stub
+		//a raiz precisa ser menor que o nó atual e o nó atual precisa ser menor que os filhos.
+		//se o nó for uma folha, o while para.
+		int painho = 1, esq, dir, k = 0; 
+		while (true) {
+			esq = 2*painho;
+			dir = 2*painho + 1;
+			if (( ((int) this.array[painho]) < ((int) this.array[esq]) && (int)this.array[painho] < (int)this.array[dir]) || painho > this.size ) {
+				break;
+			}
+			if (this.array[esq] == (Integer)null) {
+				if (this.array[dir] != (Integer)null) {
+					if (this.array[dir] < this.array[esq]) k = dir;
+					else k = esq;
+				}
+			}else k = esq;
+			
+			if ((int) this.array[k] < (int) this.array[painho]) {
+				int auxpai = this.array[k];
+				this.array[k] = this.array[painho];
+				this.array[painho] = auxpai;
+			}
+			painho = k;
+		}
+		
 		
 	}
 
 	public void upheap() {
 		int aux = size;
-		while(aux != 1 && this.array[aux] > this.array[aux/2]){
+		while(!(aux == 1 || this.array[aux] > this.array[aux/2])){
 			int auxpai = this.array[aux/2];
 			this.array[aux/2] = this.array[aux];
 			this.array[aux] = auxpai;

@@ -15,9 +15,16 @@ public class main {
 			op = sc.nextInt();
 			
 			if (op == 1) {
-				h.insert(2);			
+				h.insert(1);			
+				h.insert(2);
 				h.insert(3);
-				h.insert(1);
+			}
+			if (op == 2) {
+				System.out.println("ENTROU CU");
+				h.removeMin();
+			}
+			if (op == 3) {
+				System.out.println(h.size());
 			}
 			
 			if (op == 4) {
